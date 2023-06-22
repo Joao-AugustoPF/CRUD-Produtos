@@ -31,7 +31,7 @@ def saveSoldData(stockData):
         json.dump(stockData, file)
 
 
-def get_sales_report(stock_data):
+def mostrarRelatorioVendas(stock_data):
     print("Produtos vendidos:")
     for nome, produto in stock_data.items():
         print(
@@ -194,16 +194,16 @@ def venderProduto(stockData, soldData):
             saveStockData(stockData)
 
             # Calculate total price sold
-            price_per_unit = stockData[nomeProduto].get('preco', 0)
-            total_price_sold = price_per_unit * quantidadeVendida
+            precoUnidade = stockData[nomeProduto].get('preco', 0)
+            precoVendidoTotal = precoUnidade * quantidadeVendida
 
             soldData[nomeProduto]['quantidade'] += quantidadeVendida
-            soldData[nomeProduto]['preco'] += total_price_sold
+            soldData[nomeProduto]['preco'] += precoVendidoTotal
 
             saveSoldData(soldData)
 
             print(
-                f"Foram vendido {quantidadeVendida} unidades de {nomeProduto} por um total de R${total_price_sold:.2f}")
+                f"Foram vendido {quantidadeVendida} unidades de {nomeProduto} por um total de R${precoVendidoTotal:.2f}")
             print("Estoque atualizado.")
         else:
             print("O produto está fora de estoque.")
@@ -240,7 +240,7 @@ def main():
         elif escolha == '5':
             venderProduto(stockData, soldData)
         elif escolha == '6':
-            get_sales_report(soldData)
+            mostrarRelatorioVendas(soldData)
         elif escolha == '7':
             break
         else:

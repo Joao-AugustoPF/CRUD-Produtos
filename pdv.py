@@ -77,7 +77,7 @@ def mostrarEstoque(stockData):
     print("Estoque atual:")
     for nome, produto in stockData.items():
         print(
-            f"Nome:: {nome}, Preco: {produto['preco']}, Quantidade: {produto['quantidade']}")
+            f"Nome: {nome}, Preco: {produto['preco']}, Quantidade: {produto['quantidade']}")
 
 # Main program loop
 

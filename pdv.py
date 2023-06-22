@@ -232,7 +232,7 @@ def main():
         if escolha == '1':
             criarProduto(stockData, soldData)
         elif escolha == '2':
-            atualizarProduto(stockData, soldData)
+            atualizarProduto(stockData)
         elif escolha == '3':
             deletarProduto(stockData, soldData)
         elif escolha == '4':
